@@ -17,6 +17,10 @@ function App() {
         >
           Learn React
         </a>
+
+        KARIM ABDEL RAMIREZ BARRERA
+
+        CLOEN DE <a href="https://www.newegg.com/" > https://www.newegg.com/ </a>
       </header>
     </div>
   );
