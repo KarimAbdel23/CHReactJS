@@ -1,9 +1,15 @@
 import logo from './logo.svg';
 import './App.css';
+//import { NavBar } from './components/navbar/navbar';
+import { NavBar } from './components/navbar/NavBar'
 
 function App() {
   return (
     <div className="App">
+
+      <NavBar />
+
+     
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
@@ -18,9 +24,12 @@ function App() {
           Learn React
         </a>
 
-        KARIM ABDEL RAMIREZ BARRERA
+        <span> KARIM ABDEL RAMIREZ BARRERA</span>
+        <br />
+        <span>Version 0.02</span>
+        <br />
 
-        CLOEN DE <a href="https://www.newegg.com/" > https://www.newegg.com/ </a>
+        CLON DE <a href="https://www.newegg.com/" > https://www.newegg.com/ </a>
       </header>
     </div>
   );
