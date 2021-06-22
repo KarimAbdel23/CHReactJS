@@ -2,6 +2,7 @@
 import './App.css';
 import { NavBar } from './components/navbar/NavBar'
 import { ItemListContainer } from './containers/ItemListContainer'
+import { ItemCount }  from './components/itemcount/ItemCount'
 
 function App() {
   return (
@@ -9,8 +10,10 @@ function App() {
 
       <NavBar />
 
-      <ItemListContainer saludos="Bienvenidos a KarComputers"></ItemListContainer>
-
+      <ItemListContainer saludos="Bienvenidos a KarComputers">
+        <ItemCount stock="5" initial="1" onAdd={ (counterAux) => {  alert('cantidad elementos agregados al carrito: ' + counterAux  ) } }  ></ItemCount>    
+      </ItemListContainer>
+      
       <header className="App-header">
         <img src="/images/huevito-oro-mini.jpg" className="App-logo" alt="logo" />
         <span> KARIM ABDEL RAMIREZ BARRERA</span>
