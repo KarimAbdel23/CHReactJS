@@ -1,8 +1,9 @@
 
 import './App.css';
-import { NavBar } from './components/navbar/NavBar'
-import { ItemListContainer } from './containers/ItemListContainer'
-import { ItemCount }  from './components/itemcount/ItemCount'
+import { NavBar } from './components/navbar/NavBar';
+import { ItemListContainer } from './containers/ItemListContainer';
+import { ItemCount }  from './components/itemcount/ItemCount';
+//import { ItemList } from './components/itemlist/ItemList';
 
 function App() {
   return (
@@ -11,7 +12,8 @@ function App() {
       <NavBar />
 
       <ItemListContainer saludos="Bienvenidos a KarComputers">
-        <ItemCount stock="5" initial="1" onAdd={ (counterAux) => {  alert('cantidad elementos agregados al carrito: ' + counterAux  ) } }  ></ItemCount>    
+         <ItemCount stock="5" initial="1" onAdd={ (counterAux) => {  alert('cantidad elementos agregados al carrito: ' + counterAux  ) } }  ></ItemCount>    
+         
       </ItemListContainer>
       
       <header className="App-header">
