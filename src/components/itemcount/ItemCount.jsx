@@ -31,11 +31,11 @@ export const ItemCount = ({stock, initial, onAdd}) => {
             </div>    
             <br />
             <div class="row">
-                <div class="col-5"></div>
-                <div class="col-2">
-                    <button type="button" class="btn btn-warning fw-bold" onClick={ () => onAdd(counter)  }>Anadiralcarrito</button>
+                <div class="col-4"></div>
+                <div class="col-4">
+                    <button type="button" class="btn btn-warning fw-bold" onClick={ () => onAdd(counter)  }>Añadir al carrito</button>
                 </div>
-                <div class="col-5"></div>
+                <div class="col-4"></div>
             </div>
         </>
     )

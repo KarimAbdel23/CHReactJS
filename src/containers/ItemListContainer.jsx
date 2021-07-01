@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react"
 import { ItemList } from '../components/itemlist/ItemList';
-import  { getData } from '../utils/dataaccess';
+import  { getItems } from '../utils/dataaccess';
 
 export const ItemListContainer = (props) => {
 
@@ -11,7 +11,7 @@ export const ItemListContainer = (props) => {
     useEffect( () => {
         const waitForData =  () => {
             //let data =  
-            getData().then(
+            getItems().then(
                 result => {
                     setProductos(result);
             });
@@ -24,8 +24,6 @@ export const ItemListContainer = (props) => {
     return (
         <div >            
             <span class="badge bg-primary text-wrap fs-2" > {props.saludos} </span>  
-            {props.children}
-
             <ItemList items={productos}></ItemList>
         </div>
     )

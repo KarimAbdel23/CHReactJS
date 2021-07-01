@@ -2,8 +2,9 @@
 import './App.css';
 import { NavBar } from './components/navbar/NavBar';
 import { ItemListContainer } from './containers/ItemListContainer';
-import { ItemCount }  from './components/itemcount/ItemCount';
-//import { ItemList } from './components/itemlist/ItemList';
+import { ItemDetailContainer } from './containers/ItemDetailContainer';
+import { Switch, BrowserRouter, Route, Link } from 'react-router-dom';
+import { HomeContainer } from './containers/HomeContainer';
 
 function App() {
   return (
@@ -11,19 +12,21 @@ function App() {
 
       <NavBar />
 
-      <ItemListContainer saludos="Bienvenidos a KarComputers">
-         <ItemCount stock="5" initial="1" onAdd={ (counterAux) => {  alert('cantidad elementos agregados al carrito: ' + counterAux  ) } }  ></ItemCount>    
-         
-      </ItemListContainer>
       
-      <header className="App-header">
-        <img src="/images/huevito-oro-mini.jpg" className="App-logo" alt="logo" />
-        <span> KARIM ABDEL RAMIREZ BARRERA</span>
-        <br />
-        <span>Version 0.03</span>
-        <br />
-        CLON DE <a href="https://www.newegg.com/" > https://www.newegg.com/ </a>
-      </header>
+
+      <BrowserRouter>   
+        <Switch>          
+          <Route  exact  path="/" component={HomeContainer} />
+          <Route  exact  path="/componentes/procesadores/" component={() => <ItemListContainer saludos="Procesadores" />} />
+          <Route path="/componentes/procesadores/:idProducto" component={ItemDetailContainer} />
+        </Switch>
+      </BrowserRouter>
+
+ 
+
+      
+      
+    
     </div>
   );
 }

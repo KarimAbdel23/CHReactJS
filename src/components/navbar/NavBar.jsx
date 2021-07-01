@@ -25,7 +25,9 @@ export const NavBar = () => {
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <li><a class="dropdown-item" href="/">Tarjetas Madre</a></li>
-                        <li><a class="dropdown-item" href="/">Procesadores</a></li>
+                        <li>                             
+                            <a class="dropdown-item" href='/componentes/procesadores'>Procesadores</a>
+                        </li>
                         <li><a class="dropdown-item" href="/">Memoria Ram</a></li>
                         <li><a class="dropdown-item" href="/">Tarjetas de Video</a></li>
                         <li><a class="dropdown-item" href="/">Discos Duros</a></li>
