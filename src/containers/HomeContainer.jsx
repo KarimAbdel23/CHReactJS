@@ -1,10 +1,8 @@
 import { Link } from 'react-router-dom';
 
 export const HomeContainer = () => {
-
     return(
         <>
-
                <h1>Bienvenidos a KarComputers</h1>
 
                 <button className="btn btn-dark">

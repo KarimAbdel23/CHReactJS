@@ -1,8 +1,8 @@
-export function getItems() {   
+export function getItems(categoryId) {   
         let dataPromise = new Promise((resolve, reject) => {
 
             setTimeout ( () => { 
-               let data = [
+               let dataProcessors = [
                     {
                         id:1,
                         title:'Procesador Intel Core i5-10400F',
@@ -124,7 +124,36 @@ export function getItems() {
                         family: 'Ryzen 3'
                     }
                 ];
-                resolve(data)
+
+                let dataMemory = [
+                    {
+                        id:1,
+                        title:'Memoria RAM',
+                        description: 'Memoria RAM HyperX FURY Black DDR4, 3200MHz, 16GB, Non-ECC, CL16, XMP',
+                        price: 1819,            
+                        pictureUrl: 'https://www.cyberpuerta.mx/img/product/M/CP-KINGSTON-HX432C16FB416-1.jpg',
+                        pictureBigUrl: 'https://www.cyberpuerta.mx/img/product/XL/CP-KINGSTON-HX432C16FB416-1.jpg',
+                        SKU: 'HX432C16FB4/16',
+                        brand: 'KINGSTON',
+                        frequency: '',
+                        model: ''
+                    },
+                    {
+                        id:2,
+                        title:'Memoria RAM',
+                        description: 'Memoria RAM XPG SPECTRIX D60G DDR4, 3200MHz, 8GB, Non-ECC, CL16, XMP',
+                        price: 1129,
+                        pictureUrl: 'https://www.cyberpuerta.mx/img/product/M/CP-XPG-AX4U320038G16A-ST60-1.jpg',
+                        pictureBigUrl: 'https://www.cyberpuerta.mx/img/product/XL/CP-XPG-AX4U320038G16A-ST60-1.jpg',
+                        SKU : 'AX4U320038G16A-ST60',
+                        brand: 'XPG',
+                        frequency: '',
+                        model: ''
+                    }];
+                if (categoryId == "procesadores")
+                    resolve(dataProcessors);
+                if (categoryId == "memoriaram")
+                    resolve(dataMemory);
             }, 2000)
         });
         return dataPromise;      

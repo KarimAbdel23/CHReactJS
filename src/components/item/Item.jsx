@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 
 
-export const Item = ({item}) => {
+export const Item = ({item, categoryId}) => {
 
     return (
       <div class="col">
@@ -10,7 +10,7 @@ export const Item = ({item}) => {
               <div class="card-body">
               <h5 class="card-title">{item.title}</h5>              
               <p class="card-text">{item.price}</p>               
-               <Link to={'/componentes/procesadores/' + item.id} >Ver detalle</Link>
+               <Link to={'/componentes/' + categoryId + '/' + item.id} >Ver detalle</Link>
               </div>
         </div>
       </div>

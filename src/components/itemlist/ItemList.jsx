@@ -1,6 +1,6 @@
 import { Item } from '../item/Item';
 
-export const ItemList = ({items}) => {
+export const ItemList = ({items, category}) => {
 
     if (items.length == 0) 
         return (
@@ -23,7 +23,7 @@ export const ItemList = ({items}) => {
                         };                        
                         return (
                             <spam key={newItem.id}>
-                                <Item item={newItem} ></Item>
+                                <Item item={newItem} categoryId={category} ></Item>
                             </spam>
                         )
                     })}

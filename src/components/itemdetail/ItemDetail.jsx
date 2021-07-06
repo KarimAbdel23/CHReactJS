@@ -1,7 +1,8 @@
 import './ItemDetail.css';
 import { ItemCount } from '../itemcount/ItemCount';
+import { Link } from 'react-router-dom';
 
-export const ItemDetail = ({item}) => {
+export const ItemDetail = ({item, category}) => {
  
     return (
         <div class="border border-secondary border-2 rounded">
@@ -25,6 +26,10 @@ export const ItemDetail = ({item}) => {
             <div class="row">
                 <div class="col">                    
                     <spam>Más información</spam>
+                    <br/>
+                    <button className="btn btn-dark">
+                        <Link to={'/componentes/' + category}> Regresar </Link>
+                    </button>
                 </div>
                 <div class="col">
                     <div class="card" >
@@ -35,7 +40,7 @@ export const ItemDetail = ({item}) => {
                             <li class="list-group-item">Frecuencia del procesador: {item.frequency}</li>
                             <li class="list-group-item">Socket de procesador: {item.socket}</li>
                             <li class="list-group-item">Número de núcleos: {item.cores}</li>                            
-                        </ul>                         
+                        </ul>
                     </div>
                 </div>    
             </div>

@@ -1,20 +1,21 @@
 import { CartWidget } from "../cartwidget/CartWidget"
+import { NavLink } from 'react-router-dom';
 
 export const NavBar = () => {
     return (        
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="container-fluid">
-                <a class="navbar-brand" href="/">
+                <NavLink className="navbar-brand" to="/">
                     <img src="/images/huevito-oro-mini.jpg" alt="" width="30" height="24" class="d-inline-block align-text-top" />
                     KarComputers
-                </a>
+                </NavLink>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="/">Inicio</a>
+                    <li class="nav-item">                        
+                        <NavLink class="nav-link active" aria-current="page" to="/inicio">Inicio</NavLink>
                     </li>
                     <li class="nav-item">
                     <a class="nav-link" href="/">Ingresar</a>
@@ -25,10 +26,12 @@ export const NavBar = () => {
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <li><a class="dropdown-item" href="/">Tarjetas Madre</a></li>
-                        <li>                             
-                            <a class="dropdown-item" href='/componentes/procesadores'>Procesadores</a>
+                        <li>                                                         
+                            <NavLink className="dropdown-item" to="/componentes/procesadores">Procesadores</NavLink>
                         </li>
-                        <li><a class="dropdown-item" href="/">Memoria Ram</a></li>
+                        <li>                            
+                            <NavLink className="dropdown-item" to="/componentes/memoriaram">Memoria Ram</NavLink>
+                        </li>
                         <li><a class="dropdown-item" href="/">Tarjetas de Video</a></li>
                         <li><a class="dropdown-item" href="/">Discos Duros</a></li>
                         <li><a class="dropdown-item" href="/">Fuentes de Poder</a></li>
@@ -50,3 +53,13 @@ export const NavBar = () => {
         </nav>                  
     )
 }
+
+
+/*
+
+           <a class="navbar-brand" href="/">
+                    <img src="/images/huevito-oro-mini.jpg" alt="" width="30" height="24" class="d-inline-block align-text-top" />
+                    KarComputers
+                </a>
+
+*/
