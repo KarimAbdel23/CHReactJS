@@ -1,12 +1,16 @@
 import './ItemDetail.css';
 import { ItemCount } from '../itemcount/ItemCount';
 import { Link } from 'react-router-dom';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 export const ItemDetail = ({item, category}) => {
     
     const [existencias, setStock] = useState(10);
     const [showMe, setShowMe] = useState(false);
+
+    useEffect(() => {
+        setStock(item.stock);
+    }, [item.stock])
 
     function onAdd(quantityToAdd) {
         console.log('valor de stock: ' + existencias);
