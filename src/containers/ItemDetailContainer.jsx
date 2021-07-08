@@ -14,6 +14,7 @@ export const ItemDetailContainer = () => {
         getItems(categoryId).then(
             result => { 
                 setProducto(result.find(element => element.id == idProducto));
+                //console.log(result[0]);
              }
         )
     });

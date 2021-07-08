@@ -6,23 +6,18 @@ import { useState } from 'react';
 export const ItemDetail = ({item, category}) => {
     
     const [existencias, setStock] = useState(10);
-    const [bandera, setBandera] = useState(false);
-    
-    //console.log('valor inicial de item.stock: ' + item.stock);
-    //console.log('valor inicial de stock: ' + existencias);
+    const [showMe, setShowMe] = useState(false);
 
     function onAdd(quantityToAdd) {
         console.log('valor de stock: ' + existencias);
-        setStock(existencias - quantityToAdd );
-        setBandera(true);
+        setStock(existencias - quantityToAdd );        
+        setShowMe(true);
         console.log('valor de quantityToAdd: ' + quantityToAdd);
         console.log('valor de item.stock: ' + item.stock);
-        console.log('valor de stock: ' + existencias);
-        alert('se actualizo el stock a:' + existencias);
+        console.log('valor de stock: ' + existencias);       
     }
 
-    return (
-        
+    return (        
         <div class="border border-secondary border-2 rounded">
             <div class="row">
                 <div class="col">
@@ -37,11 +32,12 @@ export const ItemDetail = ({item, category}) => {
                             <p class="card-text"> SKU: {item.SKU}</p>
                             <p class="card-text"> Disponibles: {existencias} pzs. </p>
                             
-                             <ItemCount stock={existencias} initial="1" onAdd={onAdd}  ></ItemCount> 
+                            {!showMe &&  <ItemCount stock={existencias} initial="1" onAdd={onAdd}  ></ItemCount> }
                                
-                                    <button className="btn btn-success">
+                             {showMe && <button className="btn btn-success">
                                         <Link to="/carrito" className="text-white" >Terminar tu compra</Link>
-                                    </button>
+                                    </button>}
+                                    
 
                         </div>
                     </div>
