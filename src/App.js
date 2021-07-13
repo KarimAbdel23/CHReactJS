@@ -12,6 +12,8 @@ function App() {
   return (
     <div className="App">
       <CartComponentContext>
+     
+
         <BrowserRouter>
           <Switch>            
             <Route  exact  path="/" component={ () => <MainContainer></MainContainer>} />

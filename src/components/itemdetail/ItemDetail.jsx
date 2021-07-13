@@ -10,7 +10,7 @@ export const ItemDetail = ({item, category}) => {
     const [existencias, setStock] = useState(10);
     const [showMe, setShowMe] = useState(false);
 
-    console.log(estadoGlobal);    
+    //console.log(estadoGlobal);    
 
     useEffect(() => {
         setStock(item.stock);
@@ -21,6 +21,8 @@ export const ItemDetail = ({item, category}) => {
         console.log('valor de stock: ' + existencias);
         setStock(existencias - quantityToAdd );        
         setShowMe(true);
+
+        estadoGlobal.addItem(item, quantityToAdd);
         console.log('valor de quantityToAdd: ' + quantityToAdd);
         console.log('valor de item.stock: ' + item.stock);
         console.log('valor de stock: ' + existencias);       
@@ -58,7 +60,10 @@ export const ItemDetail = ({item, category}) => {
                     <br/>
                     <button className="btn btn-dark">
                         <Link to={'/componentes/' + category}> Regresar </Link>
-                    </button>
+                    </button>                    
+                    <br/>
+            
+            
                 </div>
                 <div class="col">
                     <div class="card" >
@@ -79,5 +84,11 @@ export const ItemDetail = ({item, category}) => {
 
 
 /*
+
+        <button type="button" class="btn btn-danger" onClick={estadoGlobal.clear} >Borrar Contexto</button><br/>
+                    <br/>
+                    <button type="button" class="btn btn-warning" onClick={() => estadoGlobal.removeItem(item.id) }>Eliminar Item</button>
+                    <br/>
+                    
 <ItemCount stock={stock} initial="1" onAdd={ (counterAux) => {  alert('cantidad elementos agregados al carrito: ' + counterAux  ) } }  ></ItemCount>
 */
