@@ -1,15 +1,20 @@
 import './ItemDetail.css';
 import { ItemCount } from '../itemcount/ItemCount';
 import { Link } from 'react-router-dom';
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
+import { CartContext } from '../../context/CartContext';
 
 export const ItemDetail = ({item, category}) => {
     
+    const estadoGlobal = useContext(CartContext)
     const [existencias, setStock] = useState(10);
     const [showMe, setShowMe] = useState(false);
 
+    console.log(estadoGlobal);    
+
     useEffect(() => {
         setStock(item.stock);
+        
     }, [item.stock])
 
     function onAdd(quantityToAdd) {
