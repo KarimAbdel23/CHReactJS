@@ -44,20 +44,23 @@ export const CartComponentContext = ({children}) => {
             console.log('Exit in contextOperations -- clear');
             console.log(cartList);
         },
-        getSubTotal: () => {
-            return subTotal();
+        getSubTotal: () => {            
+            return (subTotal()).toLocaleString('en-US', {
+                style: 'currency',
+                currency: 'USD',
+              });
         },
-        getCostoEnvio: () => {
-            return costoEnvio();
+        getCostoEnvio: () => {            
+            return (costoEnvio()).toLocaleString('en-US', {
+                style: 'currency',
+                currency: 'USD',
+              });
         },
         getTotal: () => {
-
             return (subTotal() + costoEnvio()).toLocaleString('en-US', {
                 style: 'currency',
                 currency: 'USD',
-              }); /* $2,500.00 */
-
-            //return subTotal() + costoEnvio();
+              });
         },
         getCantidadArticulos: () => {
             let cantidad = 0;

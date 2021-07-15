@@ -55,10 +55,10 @@ export const Cart = () => {
                   Cantidad de Articulos: {cartContextGlobal.getCantidadArticulos()}
               </td>
 
-              <td colSpan="2">SubTotal:</td><td>${cartContextGlobal.getSubTotal()}</td>
+              <td colSpan="2">SubTotal:</td><td>{cartContextGlobal.getSubTotal()}</td>
             </tr>
             <tr>
-              <td colSpan="2">Costo de envío:</td><td>${cartContextGlobal.getCostoEnvio()}</td>
+              <td colSpan="2">Costo de envío:</td><td>{cartContextGlobal.getCostoEnvio()}</td>
             </tr>
             <tr>
               <td colSpan="2">Total:</td><td>{cartContextGlobal.getTotal()}</td>

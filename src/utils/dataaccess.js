@@ -119,7 +119,7 @@ export function getItems(categoryId) {
                         id:8,
                         title:'Procesador AMD Ryzen 3 2200G',
                         description: 'Procesador AMD Ryzen 3 2200G con Gráficos Radeon Vega 8, S-AM4, 3.50GHz, Quad-Core, 2MB L2 Cache, con Disipador Wraith Stealth ― Verifica que tú tarjeta madre esté preparada para Ryzen serie 2000',
-                        price: formatterPesoMX.format(2879.55) ,
+                        price: 2879.55,
                         pictureUrl: 'https://www.cyberpuerta.mx/img/product/M/CP-AMD-YD2200C5FBBOX-1.jpg',
                         pictureBigUrl: 'https://www.cyberpuerta.mx/img/product/XL/CP-AMD-YD2200C5FBBOX-1.jpg',
                         SKU : 'YD2200C5FBBOX',
@@ -168,9 +168,3 @@ export function getItems(categoryId) {
         });
         return dataPromise;      
 }
-
-const formatterPesoMX = new Intl.NumberFormat('es-MX', {
-    style: 'currency',
-    currency: 'MXN',
-    minimumFractionDigits: 0
-  })
