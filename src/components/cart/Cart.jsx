@@ -1,10 +1,24 @@
+import { useContext } from "react";
+import { CartContext } from "../../context/CartContext";
 import { ItemCart } from "./ItemCart"
 
 export const Cart = () => {
-  return (
-    <>
-      <h1>Componente Cart</h1>
-      <h2>Este componente muestra un listado</h2>
+
+  const cartContextGlobal = useContext(CartContext);
+
+  if (cartContextGlobal.getCantidadArticulos() <= 0)
+   return (
+        <table class="table">
+             <tbody>
+             <tr>
+                <td><h1>No hay articulos en el carrito</h1></td>
+              </tr>
+             </tbody>
+        </table>
+   )
+  else 
+    return (
+    <>      
       <table class="table">
         <thead>
           <tr>
@@ -18,10 +32,34 @@ export const Cart = () => {
           </tr>
         </thead>
         <tbody>
-           <ItemCart />
+          { cartContextGlobal.getCartList().map( (element, index) => {
+              return <ItemCart key={element.item.id} rowCart={element} index={index + 1} deleteRowCart={cartContextGlobal.removeItem} />
+            })
+          }
         </tbody>
+        <tfoot>
+            <tr>
+              <td rowSpan="3" colSpan="3">
+                <button type="button" class="btn btn-danger" onClick={() => { cartContextGlobal.clear(); }} >
+                  Vaciar carrito
+                </button>
+              </td>
+
+              <td rowSpan="3" >                
+                  Cantidad de Articulos: {cartContextGlobal.getCantidadArticulos()}
+              </td>
+
+              <td colSpan="2">SubTotal:</td><td>${cartContextGlobal.getSubTotal()}</td>
+            </tr>
+            <tr>
+              <td colSpan="2">Costo de envío:</td><td>${cartContextGlobal.getCostoEnvio()}</td>
+            </tr>
+            <tr>
+              <td colSpan="2">Total:</td><td>{cartContextGlobal.getTotal()}</td>
+            </tr>
+        </tfoot>
       </table>
-      
+
     </>
   );
 };

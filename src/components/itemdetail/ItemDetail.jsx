@@ -6,7 +6,7 @@ import { CartContext } from '../../context/CartContext';
 
 export const ItemDetail = ({item, category}) => {
     
-    const estadoGlobal = useContext(CartContext)
+    const estadoGlobal = useContext(CartContext);
     const [existencias, setStock] = useState(10);
     const [showMe, setShowMe] = useState(false);
 

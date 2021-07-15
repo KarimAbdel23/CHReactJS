@@ -18,7 +18,7 @@ function App() {
           <Switch>            
             <Route  exact  path="/" component={ () => <MainContainer></MainContainer>} />
             <Route  exact  path="/inicio" component={ () => <MainContainer><HomeContainer/></MainContainer>} />
-            <Route  exact  path="/carrito" component={ () => <CartContainer></CartContainer>} />
+            <Route  exact  path="/carrito" component={ () => <MainContainer><CartContainer/></MainContainer>} />
             <Route  exact  path="/componentes/:categoryId" component={() => <MainContainer><ItemListContainer saludos="" /> </MainContainer>} />
             <Route path="/componentes/:categoryId/:idProducto" component={ () => <MainContainer><ItemDetailContainer/></MainContainer>} />
           </Switch>

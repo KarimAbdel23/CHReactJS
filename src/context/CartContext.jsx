@@ -8,6 +8,9 @@ export const CartComponentContext = ({children}) => {
 
     var contextOperations = {
      
+        getCartList: () => {
+            return cartList;
+        },
         addItem: (item, quantity) => {
             console.log('Enter in contextOperations -- addItem');
             console.log('Enter in contextOperations -- addItem item.id -- ' + item.id);
@@ -40,9 +43,49 @@ export const CartComponentContext = ({children}) => {
             setCartList([]);
             console.log('Exit in contextOperations -- clear');
             console.log(cartList);
+        },
+        getSubTotal: () => {
+            return subTotal();
+        },
+        getCostoEnvio: () => {
+            return costoEnvio();
+        },
+        getTotal: () => {
+
+            return (subTotal() + costoEnvio()).toLocaleString('en-US', {
+                style: 'currency',
+                currency: 'USD',
+              }); /* $2,500.00 */
+
+            //return subTotal() + costoEnvio();
+        },
+        getCantidadArticulos: () => {
+            let cantidad = 0;
+            cartList.forEach(element => {
+                let quantity = element.quantity;
+                cantidad += quantity;
+            });
+            return cantidad;
         }
     };
 
+    function subTotal() {
+        let subTotal = 0;
+        cartList.forEach(element => {
+            let pricePerQuantity = element.quantity * element.item.price;
+            subTotal += pricePerQuantity;
+        });
+        return subTotal;
+    }
+
+    function costoEnvio() {
+        let costoenvio = 0;
+        cartList.forEach(element => {
+            let pricePerEnvio = element.quantity * 49.99;
+            costoenvio += pricePerEnvio;
+        });
+        return costoenvio;
+    }
 
     function isInCart(itemId) {               
         console.log('Enter in isInCart');
@@ -64,8 +107,8 @@ export const CartComponentContext = ({children}) => {
             if (ele.item.id != itemId)
                 return ele;           
         });
-    }
-
+    }  
+    
     return(
         <CartContext.Provider value={contextOperations}>
             {children}
