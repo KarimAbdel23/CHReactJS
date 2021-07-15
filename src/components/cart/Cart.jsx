@@ -1,4 +1,5 @@
 import { useContext } from "react";
+import { Link } from "react-router-dom";
 import { CartContext } from "../../context/CartContext";
 import { ItemCart } from "./ItemCart"
 
@@ -12,6 +13,11 @@ export const Cart = () => {
              <tbody>
              <tr>
                 <td><h1>No hay articulos en el carrito</h1></td>
+              </tr>
+              <tr>
+                <td> <button className="btn btn-dark">
+                        <Link to={'/componentes/procesadores'}> Ir a procesadores </Link>
+                    </button>        </td>
               </tr>
              </tbody>
         </table>
