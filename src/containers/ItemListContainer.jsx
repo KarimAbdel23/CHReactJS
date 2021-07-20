@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom";
 import { ItemList } from '../components/itemlist/ItemList';
-import  { getItems } from '../utils/dataaccess';
+import  { getDataFromFS, getItems } from '../utils/dataaccess';
 
 export const ItemListContainer = (props) => {
     const { categoryId } = useParams();
@@ -15,17 +15,26 @@ export const ItemListContainer = (props) => {
         subtitulo = "Procesadores";
 
     useEffect( () => {
-        const waitForData =  () => {
-            //let data =  
+     
+/*
+        const computersDB = getFirestore();
+        const COLLECTION = computersDB.collection("productos");
+        COLLECTION.get().then(response => {
+            console.log(response.docs.map(element => element.data()));
+        });
+*/
+        const waitForData =  () => {            
+            /*
             getItems(categoryId).then(
                 result => {
                     setProductos(result);
-            });
-            //let aux = data.map(ele)            
+            });  
+            */ 
+            getDataFromFS('procesadores').then(result => setProductos(result));            
         }
 
-        waitForData();
-    });
+        waitForData();        
+    }, []);
 
     return (
         <div >            

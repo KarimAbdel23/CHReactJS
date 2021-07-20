@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { getItems } from "../utils/dataaccess";
+import { getItems, getOneProduct } from "../utils/dataaccess";
 import { ItemDetail } from "../components/itemdetail/ItemDetail";
 
 export const ItemDetailContainer = () => {    
@@ -9,15 +9,21 @@ export const ItemDetailContainer = () => {
     let [producto, setProducto] = useState({});
     
     useEffect( () => {
-        //getItems().then( result => { setProducto(result); });
-
+        /*
         getItems(categoryId).then(
             result => { 
                 setProducto(result.find(element => element.id == idProducto));
                 //console.log(result[0]);
              }
         )
-    });
+        */
+        getOneProduct(idProducto).then(
+            result => { 
+                console.log(idProducto);
+                setProducto(result);
+            }
+        )
+    }, [idProducto]);
 
     return(
         <div class="container">            

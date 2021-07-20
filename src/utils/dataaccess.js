@@ -1,3 +1,5 @@
+import { getFirestore } from '../firebase/client2';
+
 export function getItems(categoryId) {   
         let dataPromise = new Promise((resolve, reject) => {
 
@@ -17,7 +19,7 @@ export function getItems(categoryId) {
                         brand: 'Intel',
                         frequency: '2.90 GHz',
                         model: 'i5-10400F',
-                        family: 'Core i5-10xxx'
+                        family: 'Core i5-10xxx'                        
                     },
                     {
                         id:2,
@@ -135,7 +137,7 @@ export function getItems(categoryId) {
 
                 let dataMemory = [
                     {
-                        id:1,
+                        id:9,
                         title:'Memoria RAM',
                         description: 'Memoria RAM HyperX FURY Black DDR4, 3200MHz, 16GB, Non-ECC, CL16, XMP',
                         price: 1819,            
@@ -148,7 +150,7 @@ export function getItems(categoryId) {
                         model: ''
                     },
                     {
-                        id:2,
+                        id:10,
                         title:'Memoria RAM',
                         description: 'Memoria RAM XPG SPECTRIX D60G DDR4, 3200MHz, 8GB, Non-ECC, CL16, XMP',
                         price: 1129,
@@ -167,4 +169,42 @@ export function getItems(categoryId) {
             }, 2000)
         });
         return dataPromise;      
+}
+
+export async function getDataFromFS(category) {
+    const computersDB = getFirestore();
+    const COLLECTION = computersDB.collection("productos");
+    /*
+    const collectionByCategory = COLLECTION.where('category', '=', category)
+    collectionByCategory.get().then((querySnapshot) => {
+        if(querySnapshot.size === 0)
+            console.log('No results!');
+        
+    });
+    */
+    const response = await COLLECTION.get();
+    return response.docs.map(document => {
+        return {id: document.id, ...document.data()}
+    });
+    
+}
+
+export async function getOneProduct(itemId) {
+    
+    //8zlcAKgLutLpqedoc9lG
+
+    /*
+        const cityRef = db.collection('cities').doc('SF');
+        const doc = await cityRef.get();
+        if (!doc.exists) {
+            console.log('No such document!');
+        } else {
+            console.log('Document data:', doc.data());
+        }
+    */
+
+    const computersDB = getFirestore();
+    const COLLECTION = computersDB.collection("productos");
+    const document = await COLLECTION.doc(itemId).get();
+    return {id: document.id, ...document.data()}
 }
