@@ -16,13 +16,6 @@ export const ItemListContainer = (props) => {
 
     useEffect( () => {
      
-/*
-        const computersDB = getFirestore();
-        const COLLECTION = computersDB.collection("productos");
-        COLLECTION.get().then(response => {
-            console.log(response.docs.map(element => element.data()));
-        });
-*/
         const waitForData =  () => {            
             /*
             getItems(categoryId).then(
@@ -30,11 +23,11 @@ export const ItemListContainer = (props) => {
                     setProductos(result);
             });  
             */ 
-            getDataFromFS('procesadores').then(result => setProductos(result));            
+            getDataFromFS(categoryId).then(result => setProductos(result));            
         }
 
         waitForData();        
-    }, []);
+    }, [categoryId]);
 
     return (
         <div >            

@@ -172,37 +172,28 @@ export function getItems(categoryId) {
 }
 
 export async function getDataFromFS(category) {
+    let output;
     const computersDB = getFirestore();
     const COLLECTION = computersDB.collection("productos");
-    /*
-    const collectionByCategory = COLLECTION.where('category', '=', category)
-    collectionByCategory.get().then((querySnapshot) => {
-        if(querySnapshot.size === 0)
-            console.log('No results!');
-        
+    const collectionByCategory = COLLECTION.where('category', '==', category);
+
+    let querySnapshot = await collectionByCategory.get();        
+    if(querySnapshot.size === 0)
+        console.log('No results!');
+    output = querySnapshot.docs.map(doc => { 
+        return {id:doc.id, ...doc.data()}
     });
-    */
+
+    return output;
+   /*
     const response = await COLLECTION.get();
     return response.docs.map(document => {
         return {id: document.id, ...document.data()}
     });
-    
+     */
 }
 
 export async function getOneProduct(itemId) {
-    
-    //8zlcAKgLutLpqedoc9lG
-
-    /*
-        const cityRef = db.collection('cities').doc('SF');
-        const doc = await cityRef.get();
-        if (!doc.exists) {
-            console.log('No such document!');
-        } else {
-            console.log('Document data:', doc.data());
-        }
-    */
-
     const computersDB = getFirestore();
     const COLLECTION = computersDB.collection("productos");
     const document = await COLLECTION.doc(itemId).get();
