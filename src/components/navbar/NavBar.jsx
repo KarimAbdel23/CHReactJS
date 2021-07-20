@@ -28,19 +28,31 @@ export const NavBar = () => {
                         Componentes
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" href="/">Tarjetas Madre</a></li>
+                        <li>                            
+                            <NavLink className="dropdown-item" to="/componentes/tarjetasmadre">Tarjetas Madre</NavLink>
+                        </li>
                         <li>                                                         
                             <NavLink className="dropdown-item" to="/componentes/procesadores">Procesadores</NavLink>
                         </li>
                         <li>                            
                             <NavLink className="dropdown-item" to="/componentes/memoriaram">Memoria Ram</NavLink>
                         </li>
-                        <li><a class="dropdown-item" href="/">Tarjetas de Video</a></li>
-                        <li><a class="dropdown-item" href="/">Discos Duros</a></li>
-                        <li><a class="dropdown-item" href="/">Fuentes de Poder</a></li>
-                        <li><a class="dropdown-item" href="/">Gabinetes</a></li>
+                        <li>                            
+                            <NavLink className="dropdown-item" to="/componentes/tarjetasvideo">Tarjetas de Video</NavLink>
+                        </li>
+                        <li>                            
+                            <NavLink className="dropdown-item" to="/componentes/discosduros">Discos Duros</NavLink>
+                        </li>
+                        <li>                            
+                            <NavLink className="dropdown-item" to="/componentes/fuentespoder">Fuentes de Poder</NavLink>
+                        </li>
+                        <li>                            
+                            <NavLink className="dropdown-item" to="/componentes/gabinetes">Gabinetes</NavLink>
+                        </li>
                         <li><hr class="dropdown-divider" /></li>
-                        <li><a class="dropdown-item" href="/">Otros</a></li>
+                        <li>                            
+                            <NavLink className="dropdown-item" to="/componentes/otros">Otros</NavLink>
+                        </li>
                     </ul>
                     </li>                 
                 </ul>

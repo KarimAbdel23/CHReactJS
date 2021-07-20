@@ -199,3 +199,44 @@ export async function getOneProduct(itemId) {
     const document = await COLLECTION.doc(itemId).get();
     return {id: document.id, ...document.data()}
 }
+
+
+
+
+export function getSubtitleByCategory(category) {
+    //alert(category);
+    const categories = [{
+        category: 'tarjetasmadre',
+        name: 'Tarjetas Madre'
+    }, {
+        category: 'procesadores',
+        name: 'Procesadores'
+    }, {
+        category: 'memoriaram',
+        name: 'Memorias Ram'
+    },{
+        category: 'tarjetasvideo',
+        name: 'Tarjetas de Video'
+    }, {
+        category: 'discosduros',
+       name: 'Discos Duros'
+    }, {
+        category: 'fuentespoder',
+        name: 'Fuentes de Poder'
+    },{
+        category: 'gabinetes',
+       name: 'Gabinetes'
+    }, {
+        category: 'otros',
+       name: 'Otros accesorios'
+    }];
+
+    for (let index = 0; index <= categories.length; index++) {
+        //alert(categories[index].category);
+        if (categories[index].category === category) {
+            return categories[index].name;
+        }
+    }
+}
+
+ 
