@@ -200,8 +200,12 @@ export async function getOneProduct(itemId) {
     return {id: document.id, ...document.data()}
 }
 
-
-
+export async function addOneOrder(newOrder) {
+    const computersDB = getFirestore();
+    const COLLECTION = computersDB.collection("ordenes");
+    const orderSuccess =  await COLLECTION.add(newOrder);
+    return orderSuccess.id;
+}
 
 export function getSubtitleByCategory(category) {
     //alert(category);

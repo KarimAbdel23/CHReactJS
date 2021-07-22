@@ -7,22 +7,25 @@ import { MainContainer } from './containers/MainContainer';
 import { HomeContainer } from './containers/HomeContainer';
 import { CartContainer } from './containers/CartContainer';
 import { CartComponentContext } from './context/CartContext';
+import { OrderContextComponent } from './context/OrderContext';
+import { CheckOutContainer } from './containers/CheckOutContainer';
 
 function App() {
   return (
     <div className="App">
       <CartComponentContext>
-     
-
-        <BrowserRouter>
-          <Switch>            
-            <Route  exact  path="/" component={ () => <MainContainer></MainContainer>} />
-            <Route  exact  path="/inicio" component={ () => <MainContainer><HomeContainer/></MainContainer>} />
-            <Route  exact  path="/carrito" component={ () => <MainContainer><CartContainer/></MainContainer>} />
-            <Route  exact  path="/componentes/:categoryId" component={() => <MainContainer><ItemListContainer saludos="" /> </MainContainer>} />
-            <Route path="/componentes/:categoryId/:idProducto" component={ () => <MainContainer><ItemDetailContainer/></MainContainer>} />
-          </Switch>
-        </BrowserRouter>
+         <OrderContextComponent>
+          <BrowserRouter>
+            <Switch>            
+              <Route  exact  path="/" component={ () => <MainContainer></MainContainer>} />
+              <Route  exact  path="/inicio" component={ () => <MainContainer><HomeContainer/></MainContainer>} />
+              <Route  exact  path="/carrito" component={ () => <MainContainer><CartContainer/></MainContainer>} />
+              <Route  exact  path="/validarcompra" component={ () => <MainContainer><CheckOutContainer/></MainContainer>} />              
+              <Route  exact  path="/componentes/:categoryId" component={() => <MainContainer><ItemListContainer saludos="" /> </MainContainer>} />
+              <Route path="/componentes/:categoryId/:idProducto" component={ () => <MainContainer><ItemDetailContainer/></MainContainer>} />
+            </Switch>
+          </BrowserRouter>
+        </OrderContextComponent>
       </CartComponentContext>
     </div>
   );

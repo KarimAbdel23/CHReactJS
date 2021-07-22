@@ -45,17 +45,22 @@ export const Cart = () => {
         </tbody>
         <tfoot>
             <tr>
-              <td rowSpan="3" colSpan="3">
-                <button type="button" class="btn btn-danger" onClick={() => { cartContextGlobal.clear(); }} >
-                  Vaciar carrito
-                </button>
-              </td>
-
-              <td rowSpan="3" >                
+              <td rowSpan="3" colSpan="3">                
                   Cantidad de Articulos: {cartContextGlobal.getCantidadArticulos()}
               </td>
 
-              <td colSpan="2">SubTotal:</td><td>{cartContextGlobal.getSubTotal()}</td>
+              <td rowSpan="3" >
+                <button type="button" class="btn btn-danger" onClick={() => { cartContextGlobal.clear(); }} >
+                  Vaciar carrito
+                </button>
+                <button type="button" class="btn btn-success"  >
+                  <Link to={'/validarcompra'}>  Pagar Compra </Link>
+
+                </button>
+              </td>           
+
+              <td colSpan="2">SubTotal:</td>
+              <td>{cartContextGlobal.getSubTotal()}</td>
             </tr>
             <tr>
               <td colSpan="2">Costo de envío:</td><td>{cartContextGlobal.getCostoEnvio()}</td>
