@@ -20,3 +20,7 @@ import '@firebase/firestore';
       console.log('ejecutando funcion getFirestore');
       return  firebase.firestore(app);
   }
+
+  export const getDate = () => {
+    return firebase.firestore.Timestamp.fromDate(new Date());
+  }

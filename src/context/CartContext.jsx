@@ -11,8 +11,7 @@ export const CartComponentContext = ({children}) => {
         getCartList: () => {
             return cartList;
         },
-        addItem: (item, quantity) => {
-            console.log('Enter in contextOperations -- addItem');
+        addItem: (item, quantity) => {            
             console.log('Enter in contextOperations -- addItem item.id -- ' + item.id);
             let intQuantity = +quantity;
             //parseInt("15", 10);
@@ -61,6 +60,9 @@ export const CartComponentContext = ({children}) => {
                 style: 'currency',
                 currency: 'USD',
               });
+        },
+        getTotalSinFormato: () => {
+            return (subTotal() + costoEnvio());
         },
         getCantidadArticulos: () => {
             let cantidad = 0;

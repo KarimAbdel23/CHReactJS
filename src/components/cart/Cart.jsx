@@ -53,10 +53,9 @@ export const Cart = () => {
                 <button type="button" class="btn btn-danger" onClick={() => { cartContextGlobal.clear(); }} >
                   Vaciar carrito
                 </button>
-                <button type="button" class="btn btn-success"  >
-                  <Link to={'/validarcompra'}>  Pagar Compra </Link>
-
-                </button>
+                <Link to={'/validarcompra'}> 
+                  <button type="button" class="btn btn-success"  >Pagar Compra</button>
+                </Link>
               </td>           
 
               <td colSpan="2">SubTotal:</td>

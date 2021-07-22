@@ -12,20 +12,34 @@ export const OrderContextComponent = ({children}) => {
     const [orderList, setOrderList] = useState([]);
     
     function createOrder(name, phone, email) {
-        let cartList = cartContextGlobal.getCartList();
-        let totalCart = cartContextGlobal.getTotal();
+        let cartList = cartContextGlobal.getCartList().map((element) => {
+            console.log(element);
+            return {
+                id: element.item.id, 
+                title: element.item.title, 
+                price: element.item.price,
+                quantity:element.quantity
+            }
+        });
+        let totalCart = cartContextGlobal.getTotalSinFormato();
         let userInfo = { name, phone, email };
         const newOrder = { 
             buyer: userInfo, 
             items: cartList, 
             date: Date.now(), 
             total:totalCart
-        }
-        setOrderList([...orderList, newOrder]);
-        addOneOrder(newOrder).then(() => 
-            console.log
-        )
-        
+        }   
+        cartContextGlobal.clear();  
+        return addOneOrder(newOrder);
+        /*   
+        addOneOrder(newOrder).then(response => { 
+            console.log(response) 
+            console.log(response.id);       
+            newOrder.id = response.id;
+            setOrderList([...orderList, newOrder]);
+            cartContextGlobal.clear();
+        })
+        */
     }
 
     return(

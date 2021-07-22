@@ -1,4 +1,4 @@
-import { getFirestore } from '../firebase/client2';
+import { getFirestore, getDate } from '../firebase/client2';
 
 export function getItems(categoryId) {   
         let dataPromise = new Promise((resolve, reject) => {
@@ -202,9 +202,10 @@ export async function getOneProduct(itemId) {
 
 export async function addOneOrder(newOrder) {
     const computersDB = getFirestore();
+    newOrder.date = getDate();
     const COLLECTION = computersDB.collection("ordenes");
-    const orderSuccess =  await COLLECTION.add(newOrder);
-    return orderSuccess.id;
+    return await COLLECTION.add(newOrder);
+    //return orderSuccess;
 }
 
 export function getSubtitleByCategory(category) {
