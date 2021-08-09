@@ -1,4 +1,4 @@
-import { createContext, useState, useContext } from 'react';
+import { createContext, useContext } from 'react';
 import { CartContext } from './CartContext';
 import  { addOneOrder } from '../utils/dataaccess';
 
@@ -7,9 +7,7 @@ export const OrderContext = createContext();
 
 export const OrderContextComponent = ({children}) => {
 
-    const cartContextGlobal = useContext(CartContext);
-
-    const [orderList, setOrderList] = useState([]);
+    const cartContextGlobal = useContext(CartContext);    
     
     function createOrder(name, phone, email) {
         let cartList = cartContextGlobal.getCartList().map((element) => {
@@ -30,16 +28,7 @@ export const OrderContextComponent = ({children}) => {
             total:totalCart
         }   
         cartContextGlobal.clear();  
-        return addOneOrder(newOrder);
-        /*   
-        addOneOrder(newOrder).then(response => { 
-            console.log(response) 
-            console.log(response.id);       
-            newOrder.id = response.id;
-            setOrderList([...orderList, newOrder]);
-            cartContextGlobal.clear();
-        })
-        */
+        return addOneOrder(newOrder);       
     }
 
     return(

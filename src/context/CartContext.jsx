@@ -14,7 +14,7 @@ export const CartComponentContext = ({children}) => {
         addItem: (item, quantity) => {            
             console.log('Enter in contextOperations -- addItem item.id -- ' + item.id);
             let intQuantity = +quantity;
-            //parseInt("15", 10);
+            
             if (isInCart(item.id))
             {                
                 const elementIndex = cartList.findIndex(element => element.item.id == item.id );

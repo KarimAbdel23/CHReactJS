@@ -15,10 +15,7 @@ export const CheckOut = () => {
     const createOrderLocal = (name, phone, email) => {
         createOrderContext(name, phone, email).then(response => { 
             console.log(response) 
-            console.log(response.id);       
-            //newOrder.id = response.id;
-            //setOrderList([...orderList, newOrder]);
-            //cartContextGlobal.clear();
+            console.log(response.id);                   
             setSwitchComponent(true);
             setOrdenId(response.id);
         }) ;
@@ -40,19 +37,19 @@ export const CheckOut = () => {
         return (
             <div className="card">
                 <form>            
-                    <div class="mb-1">
-                        <label for="inputName1" class="form-label">Nombre:</label>
-                        <input type="text" class="form-control" id="inputName1" onInput={(e) => { setName(e.target.value)} } />
+                    <div className="mb-1">
+                        <label for="inputName1" className="form-label">Nombre:</label>
+                        <input type="text" className="form-control" id="inputName1" onInput={(e) => { setName(e.target.value)} } />
                     </div>
-                    <div class="mb-1">
-                        <label for="inputEmail1" class="form-label">Email:</label>
-                        <input type="email" class="form-control" id="inputEmail1" onInput={(e) => { setEmail(e.target.value)} } aria-describedby="emailHelp" />
+                    <div className="mb-1">
+                        <label for="inputEmail1" className="form-label">Email:</label>
+                        <input type="email" className="form-control" id="inputEmail1" onInput={(e) => { setEmail(e.target.value)} } aria-describedby="emailHelp" />
                     </div>
-                    <div class="mb-1">
-                        <label for="inputPhone1" class="form-label">Telefono:</label>
-                        <input type="tel" class="form-control" id="inputPhone1" onInput={(e) => { setPhone(e.target.value)} } />
+                    <div className="mb-1">
+                        <label for="inputPhone1" className="form-label">Telefono:</label>
+                        <input type="tel" className="form-control" id="inputPhone1" onInput={(e) => { setPhone(e.target.value)} } />
                     </div>
-                    <button type="button" class="btn btn-success" onClick={() => { createOrderLocal(name, phone, email); }} >Aceptar Compra</button>
+                    <button type="button" className="btn btn-success" onClick={() => { createOrderLocal(name, phone, email); }} >Aceptar Compra</button>
                     </form>
             </div>
         )

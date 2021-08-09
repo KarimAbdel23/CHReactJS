@@ -5,37 +5,37 @@ export const ItemCount = ({stock, initial, onAdd}) => {
     
     if ( stock <= 0 )    
        return  ( 
-                   <p><spam class="fs-4 fw-bold">Lo sentimos, por el momento este producto está agotado.</spam></p>
+                   <p><spam className="fs-4 fw-bold">Lo sentimos, por el momento este producto está agotado.</spam></p>
                 )    
     else
         return (       
         <>        
            
            
-            <div class="row">
-                <div class="col-4"></div>
-                <div class="col-1">
-                    <button class="btn btn-secondary" onClick={() => setCounter(counter == initial ? initial : counter - 1)}>
-                        <i class="fa fa-minus"></i>
+            <div className="row">
+                <div className="col-4"></div>
+                <div className="col-1">
+                    <button className="btn btn-secondary" onClick={() => setCounter(counter == initial ? initial : counter - 1)}>
+                        <i className="fa fa-minus"></i>
                     </button>
                 </div>
-                <div class="col-2">
-                    <input  type="text" class="form-control" value={counter}  />
+                <div className="col-2">
+                    <input  type="text" className="form-control" value={counter}  />
                 </div>
-                <div class="col-1">
-                    <button class="btn btn-secondary" onClick={() => setCounter((counter == stock) ? stock : +counter + 1)}>
-                        <i class="fa fa-plus"></i>
+                <div className="col-1">
+                    <button className="btn btn-secondary" onClick={() => setCounter((counter == stock) ? stock : +counter + 1)}>
+                        <i className="fa fa-plus"></i>
                     </button>
                 </div>
-                <div class="col-4"></div>                
+                <div className="col-4"></div>                
             </div>    
             <br />
-            <div class="row">
-                <div class="col-4"></div>
-                <div class="col-4">
-                    <button type="button" class="btn btn-warning fw-bold" onClick={ () => onAdd(counter)  }>Añadir al carrito</button>
+            <div className="row">
+                <div className="col-4"></div>
+                <div className="col-4">
+                    <button type="button" className="btn btn-warning fw-bold" onClick={ () => onAdd(counter)  }>Añadir al carrito</button>
                 </div>
-                <div class="col-4"></div>
+                <div className="col-4"></div>
             </div>
         </>
     )

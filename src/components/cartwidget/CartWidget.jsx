@@ -10,11 +10,11 @@ export const CartWidget = () => {
         <>
         { cartContextGlobal.getCantidadArticulos() > 0   &&
             <Link to="/carrito">
-                <button class="btn">                 
-                    <img src="/images/cart.png" alt="" width="43" height="35" class="d-inline-block align-text-top" />                
-                        <span class="position-absolute top-50 start-90 translate-middle badge rounded-pill bg-danger">
+                <button className="btn">                 
+                    <img src="/images/cart.png" alt="" width="43" height="35" className="d-inline-block align-text-top" />                
+                        <span className="position-absolute top-50 start-90 translate-middle badge rounded-pill bg-danger">
                             {cartContextGlobal.getCantidadArticulos()}
-                            <span class="visually-hidden">unread messages</span>
+                            <span className="visually-hidden">unread messages</span>
                         </span>
                 </button>
             </Link>        

@@ -10,8 +10,8 @@ import '@firebase/firestore';
     messagingSenderId: "761062210885",
     appId: "1:761062210885:web:051764bad4b36acf28522c"
   });
-  // Initialize Firebase
   
+  // Initialize Firebase
   export const getFirebase = () => {
     return app;    
   }
@@ -24,3 +24,19 @@ import '@firebase/firestore';
   export const getDate = () => {
     return firebase.firestore.Timestamp.fromDate(new Date());
   }
+
+ export const createAccount2 = async (email, pass) => {
+    await firebase.auth().createUserWithEmailAndPassword(email, pass);
+ }
+
+ export const getUser = () => {
+   return firebase.auth().currentUser;
+ }
+
+ export const signOut = async () => {
+  await firebase.auth().signOut();
+}
+
+export const signIn = async (email, pass) => {
+  await firebase.auth().signInWithEmailAndPassword(email, pass);
+}

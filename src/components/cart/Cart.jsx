@@ -9,7 +9,7 @@ export const Cart = () => {
 
   if (cartContextGlobal.getCantidadArticulos() <= 0)
    return (
-        <table class="table">
+        <table className="table">
              <tbody>
              <tr>
                 <td><h1>No hay articulos en el carrito</h1></td>
@@ -25,7 +25,7 @@ export const Cart = () => {
   else 
     return (
     <>      
-      <table class="table">
+      <table className="table">
         <thead>
           <tr>
             <th scope="col"></th>
@@ -50,11 +50,11 @@ export const Cart = () => {
               </td>
 
               <td rowSpan="3" >
-                <button type="button" class="btn btn-danger" onClick={() => { cartContextGlobal.clear(); }} >
+                <button type="button" className="btn btn-danger" onClick={() => { cartContextGlobal.clear(); }} >
                   Vaciar carrito
                 </button>
                 <Link to={'/validarcompra'}> 
-                  <button type="button" class="btn btn-success"  >Pagar Compra</button>
+                  <button type="button" className="btn btn-success"  >Pagar Compra</button>
                 </Link>
               </td>           
 

@@ -9,6 +9,7 @@ import { CartContainer } from './containers/CartContainer';
 import { CartComponentContext } from './context/CartContext';
 import { OrderContextComponent } from './context/OrderContext';
 import { CheckOutContainer } from './containers/CheckOutContainer';
+import { LoginContainer } from './containers/LoginContainer';
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
             <Switch>            
               <Route  exact  path="/" component={ () => <MainContainer></MainContainer>} />
               <Route  exact  path="/inicio" component={ () => <MainContainer><HomeContainer/></MainContainer>} />
+              <Route  exact  path="/acceder" component={ () => <MainContainer><LoginContainer/></MainContainer>} />
               <Route  exact  path="/carrito" component={ () => <MainContainer><CartContainer/></MainContainer>} />
               <Route  exact  path="/validarcompra" component={ () => <MainContainer><CheckOutContainer/></MainContainer>} />              
               <Route  exact  path="/componentes/:categoryId" component={() => <MainContainer><ItemListContainer saludos="" /> </MainContainer>} />
