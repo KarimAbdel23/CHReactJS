@@ -23,6 +23,7 @@ Database
 		-d mongo-express
 
 BackEnd
+
 	docker build -t apinode:1.0.0 .
 	
 	docker run --name backend \
@@ -30,11 +31,15 @@ BackEnd
 		-e URL_DB_USER=root \
 		-e URL_DB_PWD=pwd123456 \
 		--net node-net \
-		-d localhost/karramirez/apinode:1.0.0
+		-d apinode:1.0.0
 
 	docker run --name proxy \
 		-v $PWD/nginx.conf:/etc/nginx/nginx.conf:ro \
 		--net node-net \
 		-p 9060:9060 -d nginx
+
+
+docker rm $(docker ps -aq) -f  	//Eliminar todos los containers
+docker system prune				//Libera recursos
 
 
