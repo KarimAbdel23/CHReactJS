@@ -8,9 +8,9 @@ Database
 	
 	docker run --name mongodb \
 		-e MONGO_INITDB_ROOT_USERNAME=root \
-		-e MONGO_INITDB_ROOT_PASSWORD=pwd1234 \		
+		-e MONGO_INITDB_ROOT_PASSWORD=pwd1234 \
 		--net node-net \
-		-d mongo	
+		-d mongo
 	
 	docker run --name mongo-express \
 		-e ME_CONFIG_MONGODB_ADMINUSERNAME=root \
