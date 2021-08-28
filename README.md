@@ -1,3 +1,4 @@
+RETO 01
 
 Network
 
@@ -23,7 +24,6 @@ Database
 		-d mongo-express
 
 BackEnd
-
 	docker build -t apinode:1.0.0 .
 	
 	docker run --name backend \
@@ -43,3 +43,20 @@ docker rm $(docker ps -aq) -f  	//Eliminar todos los containers
 docker system prune				//Libera recursos
 
 
+
+RETO 02
+
+	docker build -t config-server:1.0.0 . --no-cache
+	
+	docker run \
+	-e GIT_URI="https://github.com/mzegarras/ms-configuration.git" \
+	-e GIT_USER="kramirez" \
+	-e GIT_PWD="" \
+	-e KEYSTORE_PWD="YOU_KEYSTORE_PASSWORD" \
+	-e KEYSTORE_ALIAS="YOU_CONFIG_SERVER_KEY" \
+	-e KEYSTORE_SECRET="YOU_KEYSTORE_PASSWORD" \
+	-v $PWD/config-server.jks:/config-server.jks:ro \
+	-p 8888:8888 \
+	config-server:1.0.0
+	
+	
