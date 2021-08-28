@@ -40,6 +40,7 @@ BackEnd
 
 
 docker rm $(docker ps -aq) -f  	//Eliminar todos los containers
+
 docker system prune				//Libera recursos
 
 
