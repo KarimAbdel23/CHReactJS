@@ -1,4 +1,6 @@
+
 Network
+
 	docker network create node-net
 
 Database
@@ -24,11 +26,11 @@ BackEnd
 	docker build -t apinode:1.0.0 .
 	
 	docker run --name backend \
-		-e URL_DB: 'mongodb://mongodb:27017/interfaces' \
+		-e URL_DB='mongodb://mongodb:27017/interfaces' \
 		-e URL_DB_USER=root \
 		-e URL_DB_PWD=pwd123456 \
 		--net node-net \
-		-d galaxy202108.azurecr.io/karramirez/apinode:1.0.0
+		-d localhost/karramirez/apinode:1.0.0
 
 	docker run --name proxy \
 		-v $PWD/nginx.conf:/etc/nginx/nginx.conf:ro \
